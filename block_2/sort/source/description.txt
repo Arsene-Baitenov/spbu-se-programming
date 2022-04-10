@@ -1,0 +1,60 @@
+There is realized interaface "sort":
+
+- public delegate int comparator<T>(T a, T b)
+	delegate of comparison function used to pass of comparator function
+	Parameters:
+		a, b - compared elements
+
+- private static int cmp_int(int a, int b)
+	int type comparator
+	Parameters:
+		a, b - compared elements
+	Return value:
+		integer value: negative - a < b, 0 - a = b, positive - a > b
+
+- private static int cmp_char(char a, char b)
+	char type comparator
+	Parameters:
+		a, b - compared elements
+	Return value:
+		integer value: negative - a < b, 0 - a = b, positive - a > b
+
+- private static int cmp_double(double a, double b)
+	char type comparator
+	Parameters:
+		a, b - compared elements
+	Return value:
+		integer value: negative - a < b, 0 - a = b, positive - a > b
+
+- private static void swap<T>(ref T a, ref T b)
+	swaps two elements
+	Parameters:
+		a, b - elements to exchange
+	Return value:
+		(none)
+
+- private static uint partition<T>(T[] a, uint l, uint r, comparator<T> cmp)
+	array partition method for further sorting splits the array into two parts:
+	from left bound to the boundary element, from the boundary element to right bound
+	Parameters:
+		a - array to sort
+		l - left bound
+		r - right bound
+		cmp - comparison function
+	Retrun value:
+		boundary element index
+
+- public static void qsort<T>(T[] a, uint l, uint r, comparator<T> cmp)	(1)
+  public static void qsort(int[] a, uint l, uint r)					(2)
+  public static void qsort(char[] a, uint l, uint r)					(3)
+  public static void qsort(double[] a, uint l, uint r)					(4)
+	1) sorts the array from left bound to right bound, using the given comparison function
+	2,3,4) sorts the array (int[], char[], double[]) from left bound to right bound,
+		using own comparison function of each type (cmp_int, cmp_char,cmp_double)
+	Parameters:
+		a - array to sort
+		l - left bound
+		r - right bound
+		cmp - comparison function
+	Return value:
+		(none)
