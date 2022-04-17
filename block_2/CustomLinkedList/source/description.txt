@@ -1,0 +1,216 @@
+There is realized container of doubly linked list
+
+-class LinkedListNode<T>
+	class of node of linked list
+	Constructor:
+		-LinkedListNode(T)
+			initializes a new instance of the LinkedListNode<T> class with the given value
+
+	Properties:
+		-LinkedListNode<T>? Next
+			gets a next node
+
+		-LinkedListNode<T>? Prev
+			gets a previous node
+
+		-LinkedList<T>? List
+			gets a linked list, that contains this node
+
+		-ref T ValueRef
+			gets a reference to a value
+
+-class LinkedList<T> : IEnumerable<T>
+	container of linked list
+	Constructors:
+		-LinkedList()
+			initializes a new instance of the LinkedList<T> class that is empty
+
+		-LinkedList(IEnumerable<T>)
+			initializes a new instance of the LinkedList<T> class that contains elements copied
+			from the specified IEnumerable and has sufficient capacity to accommodate the number of elements copied
+
+	Properties:
+		-int Count
+			gets the number of nodes actually contained in the LinkedList<T>
+
+		-LinkedListNode<T>? First
+			gets the first node of the LinkedList<T>
+
+		-LinkedListNode<T>? Last
+			gets the last node of the LinkedList<T>
+
+	Methods:
+		-void AddFirst(LinkedListNode<T>)
+			adds the specified new node at the start of the LinkedList<T>
+
+        -void AddFirst(T)
+			adds a new node containing the specified value at the start of the LinkedList<T>
+
+        -void AddLast(LinkedListNode<T>)
+			adds the specified new node at the end of the LinkedList<T>
+
+        -void AddLast(T)
+			adds a new node containing the specified value at the end of the LinkedList<T>
+
+        -void AddAfter(LinkedListNode<T>, LinkedListNode<T>)
+			adds the specified new node after the specified existing node in the LinkedList<T>
+
+        -void AddAfter(LinkedListNode<T>, T)
+			adds a new node containing the specified value after the specified existing node in the LinkedList<T>
+
+        -void AddBefore(LinkedListNode<T>, LinkedListNode<T>)
+			adds the specified new node before the specified existing node in the LinkedList<T>
+
+        -void AddBefore(LinkedListNode<T>, T)
+			adds a new node containing the specified value before the specified existing node in the LinkedList<T>
+
+        -void Clear()
+			removes all nodes from the LinkedList<T>
+
+        -bool Contains(T)
+			determines whether a value is in the LinkedList<T>
+
+        -void CopyTo(T[], Int32)
+			copies the entire LinkedList<T> to a compatible one-dimensional Array, starting at the specified index of the target array
+
+        -LinkedListNode<T>? Find(T)
+			finds the first node that contains the specified value
+
+        -LinkedListNode<T>? FindLast(T)
+			finds the last node that contains the specified value
+
+        -IEnumerator<T> GetEnumerator()
+			returns an enumerator that iterates through the LinkedList<T>
+
+        -void Remove(LinkedListNode<T>)
+			removes the specified node from the LinkedList<T>
+
+        -bool Remove(T key)
+			removes the first occurrence of the specified value from the LinkedList<T>
+
+        -void RemoveFirst()
+			removes the node at the start of the LinkedList<T>
+
+        -void RemoveLast()
+			removes the node at the end of the LinkedList<T>
+
+-static class LinkedListExtensionMethods
+	extension methods of linked list
+	Methods:
+		-static bool All<TSource>(this LinkedList<TSource>, Func<TSource, bool>)
+            determines whether all elements of a sequence satisfy a condition
+
+        -static bool Any<TSource>(this LinkedList<TSource>)
+            determines whether a sequence contains any elements
+
+        -static bool Any<TSource>(this LinkedList<TSource>, Func<TSource, bool>)
+            determines whether any element of a sequence satisfies a condition
+
+        -static LinkedList<TSource> Append<TSource>(this LinkedList<TSource>, TSource)
+            appends a value to the end of the sequence
+
+        -static LinkedList<TSource> Concat<TSource>(this LinkedList<TSource>, IEnumerable<TSource>)
+            concatenates two sequences
+
+        -static bool Contains<TSource>(this LinkedList<TSource>, TSource)
+            determines whether a sequence contains a specified element by using the default equality comparer
+
+        -static int Count<TSource>(this LinkedList<TSource>)
+            returns the number of elements in a sequence
+
+        -static int Count<TSource>(this LinkedList<TSource>, Func<TSource, bool>)
+            returns a number that represents how many elements in the specified sequence satisfy a condition
+
+        -static LinkedList<TSource> Distinct<TSource>(this LinkedList<TSource>)
+            returns distinct elements from a sequence by using the default equality comparer to compare values
+
+        -static TSource ElementAt<TSource>(this LinkedList<TSource>, Index)
+            returns the element at a specified index in a sequence
+
+        -static TSource ElementAt<TSource>(this LinkedList<TSource>, int)
+            returns the element at a specified index in a sequence
+
+        -static TSource? ElementAtOrDefault<TSource>(this LinkedList<TSource>, Index)
+            returns the element at a specified index in a sequence or a default value if the index is out of range
+
+        -static TSource? ElementAtOrDefault<TSource>(this LinkedList<TSource>, int)
+            returns the element at a specified index in a sequence or a default value if the index is out of range
+
+        -static LinkedList<TSource> Except<TSource>(this LinkedList<TSource>, IEnumerable<TSource>)
+            produces the set difference of two sequences by using the default equality comparer to compare values
+
+        -static LinkedList<TSource> Intersect<TSource>(this LinkedList<TSource>, IEnumerable<TSource>)
+            produces the set intersection of two sequences by using the default equality comparer to compare values
+
+        -static TSource First<TSource>(this LinkedList<TSource>)
+            	returns the first element of a sequence
+
+        -static TSource? FirstOrDefault<TSource>(this LinkedList<TSource>)
+            returns the first element of a sequence, or a default value if the sequence contains no elements
+
+        -static TSource Last<TSource>(this LinkedList<TSource>)
+            returns the last element of a sequence
+
+        -static TSource? LastOrDefault<TSource>(this LinkedList<TSource>)
+            returns the last element of a sequence, or a default value if the sequence contains no elements
+
+        -static long LongCount<TSource>(this LinkedList<TSource>)
+            returns an Int64 that represents the total number of elements in a sequence
+
+        -static long LongCount<TSource>(this LinkedList<TSource>, Func<TSource, bool>)
+            returns an Int64 that represents how many elements in a sequence satisfy a condition
+
+        -static TSource? Max<TSource>(this LinkedList<TSource>) where TSource : IComparable<TSource>
+            returns the maximum value in a generic sequence
+
+        -static TSource? Max<TSource>(this LinkedList<TSource>, IComparer<TSource>?)
+            returns the maximum value in a generic sequence using the given comparer
+
+        -static TSource? Min<TSource>(this LinkedList<TSource>) where TSource : IComparable<TSource>
+            returns the minimum value in a generic sequence
+
+        -static TSource? Min<TSource>(this LinkedList<TSource>, IComparer<TSource>?)
+            Returns the minimum value in a generic sequence using the given comparer
+
+        -static IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(this LinkedList<TSource>, Func<TSource, TKey>) where TKey : IComparable<TKey>
+            sorts the elements of a sequence in ascending order according to a key
+
+        -static IOrderedEnumerable<TSource> OrderBy<TSource, TKey>(this LinkedList<TSource>, Func<TSource, TKey>, IComparer<TKey>?)
+            sorts the elements of a sequence in ascending order by using a specified comparer 
+
+        -static IOrderedEnumerable<TSource> OrderByDescending<TSource, TKey>(this LinkedList<TSource>, Func<TSource, TKey>) where TKey : IComparable<TKey>
+            sorts the elements of a sequence in descending order according to a key
+
+        -static IOrderedEnumerable<TSource> OrderByDescending<TSource, TKey>(this LinkedList<TSource>, Func<TSource, TKey>, IComparer<TKey>?)
+            sorts the elements of a sequence in descending order by using a specified comparer
+
+        -static LinkedList<TSource> Prepend<TSource>(this LinkedList<TSource>, TSource)
+            adds a value to the beginning of the sequence
+
+        -static LinkedList<TSource> Reverse<TSource>(this LinkedList<TSource>)
+            inverts the order of the elements in a sequence
+
+        -static bool SequenceEqual<TSource>(this LinkedList<TSource>, IEnumerable<TSource>)
+            determines whether two sequences are equal by comparing the elements by using the default equality comparer for their type
+
+        -static bool SequenceEqual<TSource>(this LinkedList<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>?)
+            determines whether two sequences are equal by comparing their elements by using a specified IEqualityComparer<T>
+
+        -static TSource Single<TSource>(this LinkedList<TSource>)
+            returns the only element of a sequence, and throws an exception if there is not exactly one element in the sequence
+
+        -static TSource? SingleOrDefault<TSource>(this LinkedList<TSource>)
+            returns the only element of a sequence, or a default value if the sequence is empty; this method throws an exception
+            if there is more than one element in the sequence
+
+        -static LinkedList<TSource> Take<TSource>(this LinkedList<TSource>, int)
+            returns a specified number of contiguous elements from the start of a sequence
+
+        -static LinkedList<TSource> Take<TSource>(this LinkedList<TSource>, Range)
+            returns a specified range of contiguous elements from a sequence
+
+        -static LinkedList<TSource> TakeLast<TSource>(this LinkedList<TSource>, int)
+            returns a specified number of contiguous elements from the end of a sequence
+
+        -static LinkedList<TSource> Union<TSource>(this LinkedList<TSource>, IEnumerable<TSource>)
+            produces the set union of two sequences by using the default equality comparer
