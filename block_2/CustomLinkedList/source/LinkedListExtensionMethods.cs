@@ -819,16 +819,12 @@ namespace CustomLinkedList
             {
                 throw new ArgumentNullException("second");
             }
-            LinkedList<TSource> result = new LinkedList<TSource> ();
-            first = first.Distinct();
-            foreach (TSource it in first)
+            LinkedList<TSource> result = new LinkedList<TSource> (first);
+            foreach (TSource it in second)
             {
-                if (second.Contains(it))
-                {
-                    result.AddLast(it);
-                }
+                result.AddLast(it);
             }
-            return result;
+            return result.Distinct();
         }
     }
 }
